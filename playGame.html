@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon-Lights: playing</title>
+    <link rel="icon" href="Tilted Star.png" />
+  </head>
+
+
+  <style>
+   
+    td{
+        border: 2px solid black;
+        padding: 40px;
+    }
+  </style>
+
+  <body>
+    <!-- Use header, main, and footer elements to give semantic structure -->
+    <header>
+      <h1>Simon-Lights</h1>
+
+      <!-- Navigation elements -->
+      <nav>
+        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+        <menu>
+            <table style="border-bottom-right-radius: 0cqmin;">
+                <tr>
+            <td><a href="Main.html">Home </a></td>
+            <td><a href="playGame.html">Play </a></td>
+            <td><a href="scores.html">Scores </a></td>
+            <td><a href="about.html">About </a></td>
+                </tr>
+            </table>
+        </menu>
+      </nav>
+
+      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+      <hr />
+    </header>
+
+    <main>
+      <div class="players">
+        Player:
+        <span class="player-name">Magnus Carlsen</span>
+      </div>
+
+      <!-- More formatting with old style HTML -->
+      <br />
+
+      <div>
+        <label for="count">Points</label>
+        <input type="text" id="count" value="26" readonly />
+      </div>
+
+      <br />
+
+      <div>
+        <button>Start over</button>
+      </div>
+
+      <br />
+
+      <div>
+        <table>
+          <tr>
+            <td>
+              <button>
+                <!--This is the green box-->
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 100 100"
+                  height="100"
+                  width="100"
+                >
+                  <!-- SVG
+                    M move <to x,y>
+                    Q quadratic curve <control point x,y> <to x,y>
+                -->
+                  <path d="M90 5, 70 50, 95 70, 65 70, 50 95, 35 70, 5 70, 30 50, 10 5, 50 30, 90 5" fill="green" />
+                </svg>
+              </button>
+            </td>
+            <td>
+              <button>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 100 100"
+                  height="100"
+                  width="100"
+                >
+                  <path d="M90 5, 70 50, 95 70, 65 70, 50 95, 35 70, 5 70, 30 50, 10 5, 50 30, 90 5" fill="red" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 100 100"
+                  height="100"
+                  width="100"
+                >
+                  <path d="M90 5, 70 50, 95 70, 65 70, 50 95, 35 70, 5 70, 30 50, 10 5, 50 30, 90 5" fill="blue" />
+                </svg>
+              </button>
+            </td>
+            <td>
+              <button>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 100 100"
+                  height="100"
+                  width="100"
+                >
+                  <path d="M90 5, 70 50, 95 70, 65 70, 50 95, 35 70, 5 70, 30 50, 10 5, 50 30, 90 5" fill="yellow" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <hr />
+      <span class="text-reset">Author Name(s)</span>
+      <br />
+      <a href="https://github.com/JadenTaylor7/Simon-Lights.git">
+        See in GitHub
+      </a>
+    </footer>
+  </body>
+</html>
