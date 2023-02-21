@@ -1,5 +1,5 @@
 # Simon-Lights
-The Simon memorization game, built from scratch.
+The Simon memorization game, built from the ground up.
 
 Notes:
 Meta
