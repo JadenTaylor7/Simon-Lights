@@ -60,3 +60,88 @@ For more info, see: https://www.javatpoint.com/html-td-tag#:~:text=HTML%20%3Ctd%
 Making shapes info:
 [SVG Path (w3schools.com)](https://www.w3schools.com/graphics/svg_path.asp)
 
+
+
+**
+Deploying a file**
+Create a file called deployFiles.sh and add it to your project.
+
+Add the following code to the file:
+
+#!/bin/bash
+
+
+while getopts k:h:s: flag
+
+
+do
+
+
+   case "${flag}" in
+
+
+       k) key=${OPTARG};;
+
+
+       h) hostname=${OPTARG};;
+
+
+       s) service=${OPTARG};;
+
+
+   esac
+
+
+done
+
+
+if [[ -z "$key" || -z "$hostname" || -z "$service" ]]; then
+
+
+   printf "\nMissing required parameter.\n"
+
+
+   printf "  syntax: deployFiles.sh -k <pem key file> -h <hostname> -s <service>\n\n"
+
+
+   exit 1
+
+
+fi
+
+
+printf "\n----> Deploying files for $service to $hostname with $key\n"
+
+
+# Step 1
+
+
+printf "\n----> Clear out the previous distribution on the target.\n"
+
+
+ssh -i "$key" ubuntu@$hostname << ENDSSH
+
+
+rm -rf services/${service}/public
+
+
+mkdir -p services/${service}/public
+
+
+ENDSSH
+
+
+# Step 2
+
+
+printf "\n----> Copy the distribution package to the target.\n"
+
+
+scp -r -i "$key" * ubuntu@$hostname:services/$service/public
+
+Lastly in your terminal, type ./deployFiles.sh -k ~/keys/Securitykey.pem -h yourdomain.click -s simon
+//the -s simon is an example of a root to the website. For example, this would show up as Simon-lights (worldwideunified.org)
+
+Don’t forget to call the main html file as index.html, otherwise the website won’t know where to start.
+
+
